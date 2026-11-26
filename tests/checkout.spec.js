@@ -10,6 +10,9 @@ test("successful checkout displays confirmation", async ({ page }) => {
   // Add Wireless Mouse
   await page.getByRole("button", { name: "Add" }).first().click();
 
+  await expect(page.getByTestId("order-total"))
+    .toHaveText("₹799.00");
+
   // Enter customer name
   await page.getByTestId("customer-name").fill("Swayam");
 
